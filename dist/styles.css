@@ -1,8 +1,8 @@
 :root {
     --main-dark: #535657;
-    --secondary-dark: #4F646F;
+    --secondary-dark: #4f646fc9;
     --main-light: #F4FAFF;
-    --secondary-light: #DEE7E7;
+    --secondary-light: #dee7e7;
     --accent: #B7ADCF;
     --main-font: 'Noto Sans', sans-serif;
 }
@@ -33,25 +33,51 @@ header > h1 {
 /* ------------------------ CONTENT ------------------------ */
 
 #content {
-    background-color: var(--main-light);
+    background-color: var(--secondary-light);
+    padding: 30px 40px;
 }
 
 /* ------------------------ Content > card ------------------------ */
 
 .card {
-
+    background-color: var(--main-light);
+    border-radius: 10px;
 }
 
 .card > h1 {
     margin: 0;
+    padding: 0 0 5px 15px;
+    color: rgb(0, 0, 0);
+    background-color: var(--secondary-dark);
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
 }
 
 /* ------------------------ card > task_list ------------------------ */
 
 .task {
+    padding: 5px 15px;
+}
+
+.task-title,
+.task-description,
+.task-due-date,
+.task-priority {
+    margin: 0;
+}
+
+.task-title {
+    color: var(--main-dark);
+}
+
+.task-description {
+    color: var(--secondary-dark);
+}
+
+.task-due-date {
 
 }
 
-.task > h3 {
-    margin: 0;
+.task-priority {
+
 }
