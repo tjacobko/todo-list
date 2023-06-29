@@ -2,6 +2,19 @@ import { project } from "./project"
 import { todo } from "./todo"
 
 const content = document.getElementById("content")
+const openProjectBtn = document.querySelector(".new-project")
+const closeProjectBtn = document.getElementById("close-project")
+
+const openProjectForm = () => {
+    document.getElementById("project-form").style.display = "flex"
+}
+
+const closeProjectForm = () => {
+    document.getElementById("project-form").style.display = "none"
+}
+
+openProjectBtn.addEventListener("click", openProjectForm)
+closeProjectBtn.addEventListener("click", closeProjectForm)
 
 let projects = []
 
@@ -73,7 +86,7 @@ const display = () => {
         })
         card.appendChild(task_list)
 
-        content.appendChild(card)
+        content.insertBefore(card, openProjectBtn)
     })
 }
 

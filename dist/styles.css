@@ -4,6 +4,7 @@
     --main-light: #F4FAFF;
     --secondary-light: #dee7e7;
     --accent: #B7ADCF;
+    --blue: rgb(34, 118, 214);
     --main-font: 'Noto Sans', sans-serif;
 }
 
@@ -80,4 +81,65 @@ header > h1 {
 
 .task-priority {
 
+}
+
+/* ------------------------ PROJECT FORM ------------------------ */
+
+.new-project {
+    border: none;
+    border-radius: 4px;
+    padding: 15px;
+    background-color: var(--blue);
+    color: var(--main-light);
+    font-weight: 600;
+}
+
+#project-form {
+    display: none;
+    text-align: center;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--secondary-light);
+    border: 3px solid var(--secondary-dark);
+    border-radius: 4px;
+    padding: 20px;
+
+    position: fixed;
+    width: 400px;
+    height: 150px;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -200px;
+}
+
+.label-input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+label {
+    font-weight: 600;
+}
+
+input {
+    padding: 10px 0;;
+    border: none;
+    text-align: center;
+}
+
+.formbtn {
+    color: var(--main-light);
+    padding: 10px 0;
+    border: none;
+    cursor: pointer;
+}
+
+.submit {
+    background-color: rgb(66, 165, 0);
+}
+
+.close {
+    background-color: rgb(218, 0, 0);
 }
