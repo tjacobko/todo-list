@@ -1,0 +1,57 @@
+:root {
+    --main-dark: #535657;
+    --secondary-dark: #4F646F;
+    --main-light: #F4FAFF;
+    --secondary-light: #DEE7E7;
+    --accent: #B7ADCF;
+    --main-font: 'Noto Sans', sans-serif;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 10% 90%;
+    grid-template-columns: minmax(600px, auto);
+    justify-content: center;
+    font-family: var(--main-font);
+}
+
+/* ------------------------ HEADER ------------------------ */
+
+header {
+    background-color: var(--main-dark);
+}
+
+header > h1 {
+    margin: 0;
+    font-size: 50px;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+/* ------------------------ CONTENT ------------------------ */
+
+#content {
+    background-color: var(--main-light);
+}
+
+/* ------------------------ Content > card ------------------------ */
+
+.card {
+
+}
+
+.card > h1 {
+    margin: 0;
+}
+
+/* ------------------------ card > task_list ------------------------ */
+
+.task {
+
+}
+
+.task > h3 {
+    margin: 0;
+}
