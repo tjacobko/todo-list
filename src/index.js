@@ -148,6 +148,7 @@ const display = () => {
             taskForm.setAttribute("name", event.target.name)
         }
         newTaskBtn.addEventListener("click", newTaskBtnOnClick)
+        newTaskBtn.classList.add("new-task")
         card.appendChild(newTaskBtn)
 
         content.insertBefore(card, openProjectBtn)

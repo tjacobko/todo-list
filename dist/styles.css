@@ -22,6 +22,9 @@ body {
 
 header {
     background-color: var(--main-dark);
+    display: flex;
+    align-items: center;
+    padding: 15px 0 20px 20px;
 }
 
 header > h1 {
@@ -36,6 +39,9 @@ header > h1 {
 #content {
     background-color: var(--secondary-light);
     padding: 30px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 /* ------------------------ Content > card ------------------------ */
@@ -83,13 +89,14 @@ header > h1 {
 
 }
 
-/* ------------------------ PROJECT FORM ------------------------ */
+/* ------------------------ BOTH FORMS ------------------------ */
 
 form {
     display: none;
     text-align: center;
     flex-direction: column;
     justify-content: space-between;
+    gap: 10px;
     background-color: var(--secondary-light);
     border: 3px solid var(--secondary-dark);
     border-radius: 4px;
@@ -99,50 +106,6 @@ form {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-
-.new-project {
-    border: none;
-    border-radius: 4px;
-    padding: 15px;
-    background-color: var(--blue);
-    color: var(--main-light);
-    font-weight: 600;
-}
-
-#project-form {
-    /* display: none;
-    text-align: center;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: var(--secondary-light);
-    border: 3px solid var(--secondary-dark);
-    border-radius: 4px;
-    padding: 20px; */
-
-    min-width: 400px;
-    min-height: 150px;
-
-    /* position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); */
-}
-
-.label-input-container {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-label {
-    font-weight: 600;
-}
-
-input {
-    padding: 10px 0;;
-    border: none;
-    text-align: center;
 }
 
 .formbtn {
@@ -160,7 +123,50 @@ input {
     background-color: rgb(218, 0, 0);
 }
 
+input {
+    padding: 10px 0;;
+    border: none;
+    text-align: center;
+}
+
+.label-input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+label {
+    font-weight: 600;
+}
+
+/* ------------------------ PROJECT FORM ------------------------ */
+
+.new-project {
+    border: none;
+    border-radius: 4px;
+    padding: 15px;
+    background-color: var(--blue);
+    color: var(--main-light);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+#project-form {
+    min-width: 400px;
+    min-height: 150px;
+}
+
 /* ------------------------ TASK FORM ------------------------ */
+
+.new-task {
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: var(--secondary-light);
+    color: var(--blue);
+    font-weight: 600;
+    margin: 15px;
+}
 
 #task-form {
     min-width: 400px;
