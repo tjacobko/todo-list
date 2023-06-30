@@ -1,22 +1,32 @@
 import { project } from "./project"
 import { todo } from "./todo"
 
-const content = document.getElementById("content")
-const openProjectBtn = document.querySelector(".new-project")
-const closeProjectBtn = document.getElementById("close-project")
+// variables and arrays
+let projects = []
 
+// ------------------- EVENT LISTENERS -------------------
+
+// adding event to open project form
+const openProjectBtn = document.getElementById("new-project-btn")
 const openProjectForm = () => {
     document.getElementById("project-form").style.display = "flex"
 }
+openProjectBtn.addEventListener("click", openProjectForm)
 
+// adding event to close project form
+const closeProjectBtn = document.getElementById("close-project")
 const closeProjectForm = () => {
     document.getElementById("project-form").style.display = "none"
+    document.getElementById("project-title").value = ""
 }
-
-openProjectBtn.addEventListener("click", openProjectForm)
 closeProjectBtn.addEventListener("click", closeProjectForm)
 
-let projects = []
+// // adding events to all task btns
+// const newTaskBtnList = document.querySelectorAll(".taskBtn")
+// const newTaskBtnOnClick = (event) => {
+//     console.log(event.target)
+// }
+// newTaskBtnList.forEach(taskBtn => taskBtn.addEventListener("click", newTaskBtnOnClick))
 
 // Create sample project objects
 const project1 = project("Project 1")
@@ -36,6 +46,21 @@ project2.addTodo(todo3)
 projects.push(project1)
 projects.push(project2)
 
+const addProjectBtn = document.getElementById("add-project")
+const addProjectOnClick = (event) => {
+    event.preventDefault()
+
+    const projectTitle = document.getElementById("project-title")
+
+    const newProject = project(projectTitle.value)
+    projects.push(newProject)
+    closeProjectForm()
+    display()
+}
+addProjectBtn.addEventListener("click", addProjectOnClick)
+
+const content = document.getElementById("content")
+
 // Display fxn creates DOM elements from projects array
 const display = () => {
     // Remove all current cards
@@ -43,7 +68,7 @@ const display = () => {
     cards.forEach(card => content.removeChild(card))
 
     // Create and add all projects from array
-    projects.forEach(project => {
+    projects.forEach((project, index) => {
         const card = document.createElement("div")
         card.classList.add("card")
         
@@ -85,6 +110,22 @@ const display = () => {
             task_list.appendChild(task)
         })
         card.appendChild(task_list)
+
+        // Add event listener to task button, for specific project
+        const newTaskBtn = document.createElement("button")
+        newTaskBtn.textContent = "Add New Task"
+        newTaskBtn.classList.add("taskBtn")
+        newTaskBtn.setAttribute("name", index)
+        const newTaskBtnOnClick = (event) => {
+            const project = projects[event.target.name]
+
+            const newTodo = todo("New ToDo", "Help", 999, "High")
+            project.addTodo(newTodo)
+
+            display()
+        }
+        newTaskBtn.addEventListener("click", newTaskBtnOnClick)
+        card.appendChild(newTaskBtn)
 
         content.insertBefore(card, openProjectBtn)
     })

@@ -17,16 +17,33 @@
     <div id="content">
         <!-- Cards go here -->
         
-        <button type="button" class="new-project">Create New Project</button>
+        <button type="button" class="new-project" id="new-project-btn">Create New Project</button>
     </div>
 
+    <!-- PROJECT FORM - POP UP -->
     <form id="project-form">
         <div class="label-input-container">
-            <label for="title">Project Title: </label>
-            <input type="text" id="title" name="title" placeholder="Your Title">
+            <label for="project-title">Project Title: </label>
+            <input type="text" id="project-title" name="project-title" placeholder="Your Title">
         </div>
 
-        <button type="submit" class="submit formbtn">Add Project</button>
+        <button type="submit" class="submit formbtn" id="add-project">Add Project</button>
+        <button type="button" class="close formbtn" id="close-project">Close</button>
+    </form>
+
+    <!-- TASK FORM - POP UP -->
+    <form id="task-form">
+        <div class="label-input-container">
+            <label for="project-task-title">Task Title: </label>
+            <input type="text" id="project-task-title" name="task-title" placeholder="Your Task">
+        </div>
+
+        <div class="label-input-container">
+            <label for="project-task-description">Task Description: </label>
+            <input type="text" id="project-task-description" name="task-description" placeholder="Your Description">
+        </div>
+
+        <button type="submit" class="submit formbtn" id="add-task">Add Task</button>
         <button type="button" class="close formbtn" id="close-project">Close</button>
     </form>
 
