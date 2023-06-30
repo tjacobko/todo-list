@@ -21,12 +21,51 @@ const closeProjectForm = () => {
 }
 closeProjectBtn.addEventListener("click", closeProjectForm)
 
-// // adding events to all task btns
-// const newTaskBtnList = document.querySelectorAll(".taskBtn")
-// const newTaskBtnOnClick = (event) => {
-//     console.log(event.target)
-// }
-// newTaskBtnList.forEach(taskBtn => taskBtn.addEventListener("click", newTaskBtnOnClick))
+// adding event to submit a new project
+const addProjectBtn = document.getElementById("add-project")
+const addProjectOnClick = (event) => {
+    event.preventDefault()
+
+    const projectTitle = document.getElementById("project-title")
+
+    const newProject = project(projectTitle.value)
+    projects.push(newProject)
+    closeProjectForm()
+    display()
+}
+addProjectBtn.addEventListener("click", addProjectOnClick)
+
+// adding event to close task form
+const closeTaskBtn = document.getElementById("close-task")
+const closeTaskForm = () => {
+    document.getElementById("task-form").style.display = "none"
+    document.getElementById("task-title").value = ""
+    document.getElementById("task-description").value = ""
+    document.getElementById("task-due-date").value = ""
+    document.getElementById("task-priority").value = ""
+}
+closeTaskBtn.addEventListener("click", closeTaskForm)
+
+// adding event to submit a new task
+const addTaskBtn = document.getElementById("add-task")
+const addTaskOnClick = (event) => {
+    event.preventDefault()
+
+    const taskTitle = document.getElementById("task-title").value
+    const taskDescription = document.getElementById("task-description").value
+    const taskDueDate = document.getElementById("task-due-date").value
+    const taskPriority = document.getElementById("task-priority").value
+
+    const newTask = todo(taskTitle, taskDescription, taskDueDate, taskPriority)
+    const projectIndex = document.getElementById("task-form").name
+    projects[projectIndex].addTodo(newTask)
+
+    closeTaskForm()
+    display()
+}
+addTaskBtn.addEventListener("click", addTaskOnClick)
+
+// ------------------- SAMPLE DATA - TO BE DELETED -------------------
 
 // Create sample project objects
 const project1 = project("Project 1")
@@ -45,19 +84,6 @@ project2.addTodo(todo3)
 // Push sample projects to array
 projects.push(project1)
 projects.push(project2)
-
-const addProjectBtn = document.getElementById("add-project")
-const addProjectOnClick = (event) => {
-    event.preventDefault()
-
-    const projectTitle = document.getElementById("project-title")
-
-    const newProject = project(projectTitle.value)
-    projects.push(newProject)
-    closeProjectForm()
-    display()
-}
-addProjectBtn.addEventListener("click", addProjectOnClick)
 
 const content = document.getElementById("content")
 
@@ -117,12 +143,9 @@ const display = () => {
         newTaskBtn.classList.add("taskBtn")
         newTaskBtn.setAttribute("name", index)
         const newTaskBtnOnClick = (event) => {
-            const project = projects[event.target.name]
-
-            const newTodo = todo("New ToDo", "Help", 999, "High")
-            project.addTodo(newTodo)
-
-            display()
+            const taskForm = document.getElementById("task-form")
+            taskForm.style.display = "flex"
+            taskForm.setAttribute("name", event.target.name)
         }
         newTaskBtn.addEventListener("click", newTaskBtnOnClick)
         card.appendChild(newTaskBtn)

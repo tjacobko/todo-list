@@ -34,17 +34,27 @@
     <!-- TASK FORM - POP UP -->
     <form id="task-form">
         <div class="label-input-container">
-            <label for="project-task-title">Task Title: </label>
-            <input type="text" id="project-task-title" name="task-title" placeholder="Your Task">
+            <label for="task-title">Task Title: </label>
+            <input type="text" id="task-title" name="task-title" placeholder="Your Task">
         </div>
 
         <div class="label-input-container">
-            <label for="project-task-description">Task Description: </label>
-            <input type="text" id="project-task-description" name="task-description" placeholder="Your Description">
+            <label for="task-description">Task Description: </label>
+            <input type="text" id="task-description" name="task-description" placeholder="Your Description">
+        </div>
+
+        <div class="label-input-container">
+            <label for="task-due-date">Task Due Date: </label>
+            <input type="date" id="task-due-date" name="task-due-date" placeholder="Due Date">
+        </div>
+
+        <div class="label-input-container">
+            <label for="task-priority">Task Description: </label>
+            <input type="text" id="task-priority" name="task-priority" placeholder="Priority">
         </div>
 
         <button type="submit" class="submit formbtn" id="add-task">Add Task</button>
-        <button type="button" class="close formbtn" id="close-project">Close</button>
+        <button type="button" class="close formbtn" id="close-task">Close</button>
     </form>
 
     <script src="main.js"></script>
